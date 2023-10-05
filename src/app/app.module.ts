@@ -8,11 +8,21 @@ import { EffectsModule } from '@ngrx/effects';
 import { ProductEffects } from './crud-store/crud.effects';
 import { productReducer } from './crud-store/crud.reducer';
 import { HttpClientModule } from '@angular/common/http';
+import { ParentComponent } from './components/parent/parent.component';
+import { ChildComponent } from './components/child/child.component';
+import { ApiDataComponent } from './components/api-data/api-data.component';
+import { FormComponent } from './components/form/form.component';
+import { FormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    CrudOperationsComponent
+    CrudOperationsComponent,
+    ParentComponent,
+    ChildComponent,
+    ApiDataComponent,
+    FormComponent
   ],
   imports: [
     BrowserModule,
@@ -20,6 +30,8 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule,
     StoreModule.forRoot({ products: productReducer }), // Configure the root reducer
     EffectsModule.forRoot([ProductEffects]), // Register the effects
+    FormsModule
+   
   ],
   providers: [],
   bootstrap: [AppComponent]
